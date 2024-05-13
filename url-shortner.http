@@ -1,0 +1,12 @@
+@url_shortner_HostAddress = http://localhost:5102
+
+POST {{url_shortner_HostAddress}}/shorten/url
+Content-Type: application/json
+
+{
+    "url": "https://md-devdays.de/act-overview?tabIndex=1"
+}
+
+###
+GET {{url_shortner_HostAddress}}/39E76A0A
+Accept: application/json
