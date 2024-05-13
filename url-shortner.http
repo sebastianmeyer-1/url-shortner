@@ -4,9 +4,9 @@ POST {{url_shortner_HostAddress}}/shorten/url
 Content-Type: application/json
 
 {
-    "url": "https://md-devdays.de/act-overview?tabIndex=1"
+    "url": "https://md-devdays.de/act-overview?tabIndex=3"
 }
 
 ###
-GET {{url_shortner_HostAddress}}/39E76A0A
+GET {{url_shortner_HostAddress}}/158664E4
 Accept: application/json

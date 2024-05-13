@@ -29,7 +29,7 @@ app.MapPost("/shorten/url", (UrlShortnerRequest request) =>
 {
     Trace($"POST Request received. Shorten URL = {request.Url}");
     string hash = request.Url.ToShortUrl();
-    request.ShortUrl = $"{Environment.GetEnvironmentVariable("HOSTNAME")}{hash}";
+    request.ShortUrl = $"{Environment.GetEnvironmentVariable("HOSTNAME") ?? throw new ArgumentNullException("HOSTNAME not set in Environment")}{hash}";
     
     Trace($"Update Cache with Key: {hash} Value: {request.Url}");
     cache.StringSet(hash, request.Url);
@@ -115,7 +115,7 @@ public class ShortUrlDbContext : DbContext
 {
     public DbSet<ShortUrlItem> ShortUrls { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("POSTGRES_CONNECTION"));
+        => optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("POSTGRES_CONNECTION") ?? throw new ArgumentNullException("POSTGRES_CONNECTION not set in Environment"));
 }
 
 public class ShortUrlItem
