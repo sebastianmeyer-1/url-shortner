@@ -91,8 +91,8 @@ void Trace(string message)
 
 public class UrlShortnerRequest 
 {
-    public string Url { get; set;}
-    public string ShortUrl { get; set;}
+    public string Url { get; set;} = default!;
+    public string ShortUrl { get; set;} = default!;
 }
 
 public static class StringExtension
@@ -113,7 +113,7 @@ public static class StringExtension
 
 public class ShortUrlDbContext : DbContext
 {
-    public DbSet<ShortUrlItem> ShortUrls { get; set; }
+    public DbSet<ShortUrlItem> ShortUrls { get; set; } = default!;
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("POSTGRES_CONNECTION") ?? throw new ArgumentNullException("POSTGRES_CONNECTION not set in Environment"));
 }
@@ -121,6 +121,6 @@ public class ShortUrlDbContext : DbContext
 public class ShortUrlItem
 {
     public int Id { get; set; }
-    public string Hash { get; set; }
-    public string Target { get; set; }
+    public string Hash { get; set; } = default!;
+    public string Target { get; set; } = default!;
 }

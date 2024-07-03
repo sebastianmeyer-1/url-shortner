@@ -4,9 +4,9 @@ POST {{url_shortner_HostAddress}}/shorten/url
 Content-Type: application/json
 
 {
-    "url": "https://md-devdays.de/act-overview?tabIndex=3"
+    "url": "https://www.developer-week.de/programm/#/talk/die-twelve-factor-app-methode-als-grundlage-fur-cloud-native-apps"
 }
 
 ###
-GET {{url_shortner_HostAddress}}/158664E4
+GET {{url_shortner_HostAddress}}/CFFA8237
 Accept: application/json
